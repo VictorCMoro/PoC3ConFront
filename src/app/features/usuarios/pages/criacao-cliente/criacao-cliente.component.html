@@ -1,0 +1,108 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Cadastro de Cliente</h2>
+
+  <form [formGroup]="clienteForm" class="row g-3" (ngSubmit)="createCliente()">
+    <div class="col-md-6">
+      <label for="nome" class="form-label">Nome</label>
+      <input
+        id="nome"
+        type="text"
+        class="form-control"
+        formControlName="nome"
+        [ngClass]="{
+          'is-invalid':
+            clienteForm.get('nome')?.touched && clienteForm.get('nome')?.invalid
+        }"
+      />
+      <div
+        *ngIf="
+          clienteForm.get('nome')?.touched &&
+          clienteForm.get('nome')?.hasError('required')
+        "
+        class="invalid-feedback"
+      >
+        Nome é obrigatório.
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input
+        id="email"
+        type="email"
+        class="form-control"
+        formControlName="email"
+        [ngClass]="{
+          'is-invalid':
+            clienteForm.get('email')?.touched &&
+            clienteForm.get('email')?.invalid
+        }"
+      />
+      <div
+        *ngIf="
+          clienteForm.get('email')?.touched &&
+          clienteForm.get('email')?.hasError('required')
+        "
+        class="invalid-feedback"
+      >
+        Email é obrigatório.
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="cpf" class="form-label">CPF</label>
+      <input
+        id="cpf"
+        type="text"
+        class="form-control"
+        formControlName="cpf"
+        maxlength="14"
+        (input)="onCpfInput($event)"
+        [ngClass]="{
+          'is-invalid':
+            clienteForm.get('cpf')?.touched && clienteForm.get('cpf')?.invalid
+        }"
+      />
+      <div
+        *ngIf="
+          clienteForm.get('cpf')?.touched &&
+          clienteForm.get('cpf')?.hasError('required')
+        "
+        class="invalid-feedback"
+      >
+        CPF é obrigatório.
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input
+        id="telefone"
+        type="tel"
+        class="form-control"
+        formControlName="telefone"
+        maxlength="15"
+        (input)="onTelefoneInput($event)"
+      />
+    </div>
+
+    <div class="col-md-6">
+      <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+      <input
+        id="dataNascimento"
+        type="date"
+        class="form-control"
+        formControlName="dataNascimento"
+      />
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Salvar Cliente</button>
+    </div>
+    <div class="col-12">
+      <button type="button" class="btn btn-secondary" onclick="history.back()">
+        Voltar
+      </button>
+    </div>
+  </form>
+</div>

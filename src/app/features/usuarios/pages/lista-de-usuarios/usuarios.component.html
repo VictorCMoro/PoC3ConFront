@@ -1,0 +1,38 @@
+<div class="container min-vh-100 py-4">
+  <h1 class="text-center mb-4">Lista de clientes</h1>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @for (cliente of clientes; track $index) {
+    <div class="col">
+      <div class="card h-100 d-flex flex-column">
+        <a
+          class="text-decoration-none text-dark"
+          [routerLink]="['cliente-detalhes/', cliente.id]"
+        >
+          <div class="card-body">
+            <h5 class="card-title">Nome: {{ cliente.nome }}</h5>
+            <p class="card-text">CPF: {{ cliente.cpf }}</p>
+            <p class="card-text">Email: {{ cliente.email }}</p>
+            <p class="card-text">Telefone: {{ cliente.telefone }}</p>
+          </div>
+        </a>
+        <div class="card-footer bg-transparent border-0 mt-auto d-flex justify-content-between">
+          <button
+            class="btn btn-primary"
+            [routerLink]="['edicao-cliente/', cliente.id]"
+          >
+            Editar
+          </button>
+          <button class="btn btn-danger" (click)="deletarCliente(cliente.id)">Deletar</button>
+        </div>
+      </div>
+    </div>
+    } @empty {
+    <div class="alert alert-warning">Não há clientes para exibir.</div>
+    }
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-success" [routerLink]="['criacao-cliente']">Criar cliente</button>
+  </div>
+</div>

@@ -10,7 +10,6 @@ Este é o **frontend** da aplicação **PoC3Con**, um sistema web desenvolvido c
 
 - Node.js (versão 18.x ou superior)
 - Angular CLI (`npm install -g @angular/cli`)
-- Navegador moderno (Chrome, Edge, Firefox)
 
 ### Passos para execução
 

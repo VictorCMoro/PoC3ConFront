@@ -5,12 +5,12 @@ import { Cliente } from '../../../../models/clientes/cliente';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-detalhes-usuario',
+  selector: 'app-detalhes-cliente',
   imports: [DatePipe],
-  templateUrl: './detalhes-usuario.component.html',
-  styleUrl: './detalhes-usuario.component.scss'
+  templateUrl: './detalhes-cliente.component.html',
+  styleUrl: './detalhes-cliente.component.scss'
 })
-export class DetalhesUsuarioComponent {
+export class DetalhesClienteComponent {
 
   id: string | null = null;
   cliente?: Cliente;

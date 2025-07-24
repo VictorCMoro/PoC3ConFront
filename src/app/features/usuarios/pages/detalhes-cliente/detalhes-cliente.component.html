@@ -27,7 +27,7 @@
           <div class="border rounded p-3 mb-3">
             <p><strong>Descrição:</strong> {{ pedido.descricao }}</p>
             <p><strong>Valor:</strong> {{ pedido.valor }}</p>
-            <p><strong>Data do Pedido:</strong> {{ pedido.dataPedido }}</p>
+            <p><strong>Data do Pedido:</strong> {{ pedido.dataPedido | date: 'dd/MM/yyyy' }}</p>
           </div>
           } } @else {
           <p class="text-muted">Nenhum pedido encontrado.</p>

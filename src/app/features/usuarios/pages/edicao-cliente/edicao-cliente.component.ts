@@ -13,6 +13,7 @@ import { ClienteService } from '../../services/clientes/cliente.service';
 import { cpfValidator } from '../../../../shared/validators/cpf.validator';
 import { telefoneValidator } from '../../../../shared/validators/telefone.validator';
 import { CommonModule } from '@angular/common';
+import { dataNascimentoValidator } from '../../../../shared/validators/data-nascimento.validator';
 
 @Component({
   selector: 'app-edicao-cliente',
@@ -39,7 +40,7 @@ export class EdicaoClienteComponent implements OnInit {
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required, cpfValidator]],
-      dataNascimento: ['', Validators.required],
+      dataNascimento: ['', dataNascimentoValidator],
       telefone: ['', telefoneValidator],
     });
   }
@@ -74,7 +75,7 @@ export class EdicaoClienteComponent implements OnInit {
         this.service.getById(this.id).subscribe({
           next: (data: any) => {
             this.cliente = data.cliente;
-
+            console.log(data.cliente)
             this.clienteForm.patchValue(data.cliente);
           },
         });

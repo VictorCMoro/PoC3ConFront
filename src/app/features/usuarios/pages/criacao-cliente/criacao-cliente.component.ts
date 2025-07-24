@@ -9,6 +9,7 @@ import { ClienteService } from '../../services/clientes/cliente.service';
 import { CommonModule } from '@angular/common';
 import { cpfValidator } from '../../../../shared/validators/cpf.validator';
 import { telefoneValidator } from '../../../../shared/validators/telefone.validator';
+import { dataNascimentoValidator } from '../../../../shared/validators/data-nascimento.validator';
 
 @Component({
   selector: 'app-criacao-cliente',
@@ -27,7 +28,7 @@ export class CriacaoClienteComponent {
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required, cpfValidator]],
-      dataNascimento: [''],
+      dataNascimento: ['', dataNascimentoValidator],
       telefone: ['', telefoneValidator],
       pedidos: [[]],
     });
@@ -36,7 +37,7 @@ export class CriacaoClienteComponent {
   createCliente() {
     if (this.clienteForm.invalid) {
       this.clienteForm.markAllAsTouched();
-      alert('erro');
+      alert('Erro na validação de inputs.');
       return;
     }
 

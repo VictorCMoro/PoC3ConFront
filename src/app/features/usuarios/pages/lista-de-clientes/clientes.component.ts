@@ -5,12 +5,12 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-usuarios',
+  selector: 'app-clientes',
   imports: [CommonModule, RouterModule ],
-  templateUrl: './usuarios.component.html',
-  styleUrl: './usuarios.component.scss',
+  templateUrl: './clientes.component.html',
+  styleUrl: './clientes.component.scss',
 })
-export class UsuariosComponent {
+export class ClientesComponent {
   clientes: Cliente[] = [];
 
   constructor(private clienteService: ClienteService) {}
